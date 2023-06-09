@@ -1,0 +1,14 @@
+This repository contains the code used to compute the QCD equations of state described here:
+
+https://drive.google.com/file/d/1dujfQ2quk7MV_XeySzCJEIGA3D6aMPYt/view?usp=drive_link
+
+These use python 3.8 and C++11. The following libraries are needed to use this software:
+
+GSL: https://www.gnu.org/software/gsl/
+OpenMP: https://www.openmp.org
+pybind11: https://github.com/pybind/pybind11
+
+Refer to "compute.py" for information on how to run each model.
+
+To run it, enter:
+"make compute"
