@@ -4,7 +4,7 @@ GSLFLAGS = -lgsl -lgslcblas -lm
 DIR=$(shell pwd)
 #-L/usr/local/lib -L/usr/src/debug
 
-IFLAGS =   -I /include
+IFLAGS =   -I include
 LFLAGS =  $(OMPFLAGS) $(GSLFLAGS) -I/usr/local/include
 CFLAGS = -g -O3 -fPIC $(OMPFLAGS) $(IFLAGS) -fpermissive -fvisibility=hidden
 EXECUTABLE = program
@@ -16,10 +16,8 @@ OBJECTS := $(patsubst src/%.cpp, obj/%.o,$(wildcard src/*.cpp))
 compute : therm.so
 	python3 -W ignore compute.py
 
-
 opti : therm.so
 	python3 -W ignore opti.py
-
 
 obj/%.o : src/%.cpp
 	$(CC) $(CFLAGS) $(IFLAGS_PYBIND) -c -o $@ $^

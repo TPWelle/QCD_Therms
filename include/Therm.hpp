@@ -1,5 +1,5 @@
-#ifndef THERM_ARRAY_H
-#define THERM_ARRAY_H
+#ifndef THERM_H
+#define THERM_H
 
 #include <cmath>
 #include "misc.hpp"
@@ -20,7 +20,10 @@ struct Therm{
 
 	int divs=2; //order of derivatives to be computed
 	int N_threads=7; //Number of threads for parallelization
-	bool comp_flag=false; //used to avoid computing values repeatedly
+
+	//used to avoid computing values repeatedly in cases when multiple
+	//models are using one another's results
+	bool comp_flag=false;
 	bool display_progress=false;
 
 	//Arrays of temperatures and chemical potentials
@@ -42,12 +45,13 @@ struct Therm{
 	//to arrays of the same size.
 	virtual void set_Tmu(py::array_t<double> Temps, py::array_t<double> mu_Bs);
 
-	virtual void clear_comp_flag();
+	virtual void clear_comp_flag(); //sets comp_flag to false for self and constituent models
+	virtual ~Therm()=default;
 
 	//compute the values of Y at the the specified values of Temp and mu_B
 	//also compute appropriate derivatives if divs>0.
 	virtual void compute();
-	virtual ~Therm()=default;
+
 
 	//Used by pythons pickling and copying features
 	virtual py::tuple getstate();

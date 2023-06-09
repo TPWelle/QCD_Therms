@@ -14,6 +14,7 @@ using namespace std;
 
 Embedded::Embedded(Therm * pP):
 pP(pP){
+    this->N_threads=1;
     //Mean-Field
     // set_critical_exponents(4.0/3.0, 3.0/2.0);
     //3D-Ising
@@ -22,6 +23,8 @@ pP(pP){
 
 Embedded::Embedded(Therm * pP, double Tc, double muc):
 pP(pP){
+
+    this->N_threads=1;
     this->Tc=Tc; this->muc=muc;
     //Mean-Field
     // set_critical_exponents(4.0/3.0, 3.0/2.0);

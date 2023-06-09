@@ -42,7 +42,7 @@ struct Scaling : Therm {
 	//0: mux defined by n(T,mux(T)=n_c
 	//1: mux=muc
 	//2: Rotated Schofield
-	int mu_code=0;
+	int mu_code = 0;
 
 	double m0; double h0; double h3; double h5; double theta0;
 	double g0; double g1; double g2; double g3;

@@ -255,21 +255,13 @@ vector<double> Optimize(Crossover* pth){
 	}else if (EXII *pP1 = dynamic_cast<EXII*> (pth->pP1) ){
 		opti.push_back( &(pP1->eps0) );
 	}else if ( RMF *pP1 = dynamic_cast<RMF*> (pth->pP1) ){
-		// opti.push_back( &(pP1->g_sig) );
-		// opti.push_back( &(pP1->g_om) );
-		// opti.push_back( &(pP1->g_rho) );
-		// opti.push_back( &(pP1->alpha_V) );
-		// opti.push_back( &(pP1->z) );
-		// opti.push_back( &(pP1->b) );
-		// opti.push_back( &(pP1->c) );
-
 		//Do Nothing
 	}else throw invalid_argument("Unrecognized Model in Optimize()");
 
 
 	pQCD* pP2 = dynamic_cast<pQCD*>( pth->pP2 );
-	opti.push_back( &(pP2->EScl) );
-	opti.push_back( &(pP2->Soft) );
+	opti.push_back( &(pP2->C_E) );
+	opti.push_back( &(pP2->C_S) );
 
 	double chisquare = MinimizeChiSquare(pth, opti);
 	vector<double> out(opti.size()+1,0.0);
@@ -289,9 +281,6 @@ vector<double> Optimize(Crossover* pth){
 
 void init_optimize(py::module_ &m){
 	m.def("MinimizeChiSquare", &MinimizeChiSquare, "A function for chisquare");
-	// m.def("Optimize_PT", &Optimize_PT, "A funcion to optimize PT");
-	// m.def("Optimize_EXI", &Optimize_EXI, "A funcion to optimize EXI");
-	// m.def("Optimize_EXII", &Optimize_EXII, "A funcion to optimize EXII");
 	m.def("Optimize", &Optimize, "A funcion to optimize Crossover");
 }
 

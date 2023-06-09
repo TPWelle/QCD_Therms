@@ -469,21 +469,6 @@ void RMF::compute() {
 
 		// for computing X_mm
 		double dmu =.2;
-		// vector<double> RMFs_p= get_RMFs(pTemp[i], pmu[i]+dmu),RMFs_n= get_RMFs(pTemp[i], pmu[i]-dmu);
-		// vector<double> mus_p=get_mus(pmu[i]+dmu),mus_n=get_mus(pmu[i]-dmu);
-		// vector<double> mu_star_p = get_mu_star(mus_p, RMFs_p),mu_star_n = get_mu_star(mus_n, RMFs_n);
-		// vector<double> ns_p = get_n(pTemp[i], m_star, mu_star_p),ns_n = get_n(pTemp[i], m_star, mu_star_n);
-		
-	// Particle("pi+", 139.57, 1, {{0,1,0},{0,-1,0}}, BOSON),
-	// Particle("pi0", 134.98, 1, {{0,0,0}}, BOSON),
-	// Particle("eta", 547.86, 1, F_Iscl, BOSON),
-	// Particle("f0(500)", 475.0, 1, 1, 0, 0, BOSON),//Many sources omit this due to huge width
-	// Particle("rho(770)", 775.3, 3, F_Ivect, BOSON),
-	// Particle("omega(782)", 782.7, 3, F_Iscl, BOSON),
-	// Particle("eta'(958)", 957.8, 1, F_Iscl, BOSON),
-	// Particle("f0(980)", 990.0, 1, F_Iscl, BOSON),
-	// Particle("a0(980)", 980.0, 1, F_Ivect, BOSON),
-	// Particle("phi(1020)", 1019.5, 3, F_Iscl, BOSON),
 
 		vector<double> m_light_mesons
 		 ={139.57,134.98,547.86,475.0,775.3,782.7,957.8,990.0,980.0, 1019.5};
